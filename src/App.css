@@ -2,10 +2,8 @@ body{
   background-color: #fbfbfb;
 }
 
-.container {
-  display: flex;
+.App {
   text-align: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
+
 
