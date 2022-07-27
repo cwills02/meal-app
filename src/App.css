@@ -1,9 +1,9 @@
-body{
-  background-color: #fbfbfb;
-}
-
 .App {
   text-align: center;
+  background-color: #abd7eb;
+  font-family: 'Roboto';
+  font-weight: '400';
 }
+
 
 

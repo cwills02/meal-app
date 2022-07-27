@@ -8,16 +8,30 @@ import MealCard from './MealCard'
 function App() {
   const [meals, setMeals] = useState([]);
 
-  useEffect(() => {
+  let buttonList = [];
+  if(meals.length > 1) {
+    let buttons = meals.map(meal => meal.strCategory);
+    for(let i = 0; i < buttons.length; i++) {
+      if(!buttonList.includes(buttons[i])) {
+        buttonList.push(buttons[i]);
+      }
+    }
+  } 
+
+  const fetchMeals = () => {
     fetch("https://www.themealdb.com/api/json/v2/9973533/randomselection.php")
       .then(res => res.json()).then(data => 
         setMeals(data.meals));
+  }
+
+  useEffect(() => {
+    fetchMeals();
   }, [])
 
   let mealList; 
   if(meals === []) {
     mealList = <h1>No Meals Yet!</h1>
-  } else {
+  } else if(meals) {
     console.log(meals)
     mealList = meals.map(meal => {
       return (
@@ -30,10 +44,27 @@ function App() {
     })
   }
 
+  const filterDesserts = () => {
+    let newMeals = meals;
+    let dessertMeals;
+    if(newMeals.length > 0) {
+       dessertMeals = newMeals.filter(meal => meal.strCategory === 'Dessert');
+       setMeals(dessertMeals);
+    }
+  }
+
   return (
     <div className="App">
       <AppBar />
       <Container>
+        {meals.length > 0 && buttonList.map(meal => {
+          return (
+            <div className='buttonList' key={meal}>
+              <button onClick={filterDesserts}>{meal}</button>
+            </div>
+          )
+        }
+        )}
         {mealList}
       </Container>
     </div>

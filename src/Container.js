@@ -8,7 +8,7 @@ export default function SimpleContainer(props) {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
-        <Box sx={{ height: '100%', backgroundColor: '#abd7eb', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '15px' }}>
+        <Box sx={{ height: '100%', backgroundColor: '#ececec', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '15px', borderRadius: '20px' }}>
           {props.children}
         </Box>
       </Container>
