@@ -5,5 +5,26 @@
   font-weight: '400';
 }
 
+.outer-container {
+  display: flex;
+}
 
+.filterButton {
+  background: salmon;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 20px;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.filterButton:hover {
+  background-color: #abd7eb;
+  color: salmon;
+  transition: background-color 1s ease-in-out;
+  transition: color 1s ease-in-out;
+}
 

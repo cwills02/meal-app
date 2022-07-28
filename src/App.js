@@ -4,6 +4,7 @@ import AppBar from './AppBar'
 import './App.css';
 import Container from './Container'
 import MealCard from './MealCard'
+import BoxContainer from './BoxContainer'
 
 function App() {
   const [meals, setMeals] = useState([]);
@@ -44,29 +45,33 @@ function App() {
     })
   }
 
-  const filterDesserts = () => {
+  const filterMeals = (str) => {
     let newMeals = meals;
-    let dessertMeals;
+    let filteredMeals;
     if(newMeals.length > 0) {
-       dessertMeals = newMeals.filter(meal => meal.strCategory === 'Dessert');
-       setMeals(dessertMeals);
+       filteredMeals = newMeals.filter(meal => meal.strCategory === str);
+       setMeals(filteredMeals);
     }
   }
 
   return (
     <div className="App">
       <AppBar />
-      <Container>
-        {meals.length > 0 && buttonList.map(meal => {
-          return (
-            <div className='buttonList' key={meal}>
-              <button onClick={filterDesserts}>{meal}</button>
-            </div>
-          )
-        }
-        )}
-        {mealList}
-      </Container>
+      <div className='outer-container'>
+        <BoxContainer>
+        {meals.length > 0 && buttonList.map(item => {
+            return (
+              <div className='buttonList' key={item}>
+                <button className='filterButton' onClick={(e) => filterMeals(e.target.innerHTML)}>{item}</button> 
+              </div>
+            )
+          }
+          )}
+        </BoxContainer>
+        <Container sx={{width: '75%'}}>
+          {mealList}
+        </Container>
+      </div>
     </div>
   );
 }
