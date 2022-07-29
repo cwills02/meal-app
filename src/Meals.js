@@ -65,7 +65,7 @@ function App() {
           fetchMeals={fetchMeals}
         />
         <Container sx={{width: '75%'}}>
-        <h1 style={{color: 'navy', backgroundColor: '#abd7eb'}}>Newest Meals from Around the World</h1>
+        <h1 style={{color: 'navy', backgroundColor: '#abd7eb', marginTop: '0'}}>Newest Meals from Around the World</h1>
           {mealList}
         </Container>
       </div>

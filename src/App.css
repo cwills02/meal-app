@@ -27,8 +27,7 @@
 .filterButton:hover {
   background-color: #abd7eb;
   color: salmon;
-  transition: background-color 0.6s ease-in-out;
-  transition: color 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .thumbnail {
@@ -36,7 +35,7 @@
 }
 
 .restore-button {
-  background-color: navy;
+  background-color: #000080;
   color: #abd7eb;
   font-family: 'Roboto';
   border-radius: 5px;
@@ -48,9 +47,8 @@
 }
 
 .restore-button:hover {
-  background-color: white;
+  background: #fff;
   color:#abd7eb;
-  transition: background-color 0.6s ease-in-out;
-  transition: color 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
