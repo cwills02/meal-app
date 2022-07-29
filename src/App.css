@@ -7,6 +7,8 @@
 
 .outer-container {
   display: flex;
+  background-color: #abd7eb;
+  height: max-content;
 }
 
 .filterButton {
@@ -26,5 +28,21 @@
   color: salmon;
   transition: background-color 1s ease-in-out;
   transition: color 1s ease-in-out;
+}
+
+.thumbnail {
+  width: 150px;
+}
+
+.restore-button {
+  background-color: navy;
+  color: #abd7eb;
+  font-family: 'Roboto';
+  border-radius: 5px;
+  font-size: 20px;
+  margin-top: 30px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
