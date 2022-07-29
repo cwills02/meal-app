@@ -39,6 +39,7 @@ function App() {
           <h3>{meal.strMeal}</h3>
           <img className='thumbnail' src={`${meal.strMealThumb}/preview`} 
           alt='meal' />
+          <h3>{meal.strArea}</h3>
         </MealCard>
       )
     })
@@ -64,6 +65,7 @@ function App() {
           fetchMeals={fetchMeals}
         />
         <Container sx={{width: '75%'}}>
+        <h1 style={{color: 'navy', backgroundColor: '#abd7eb'}}>Newest Meals from Around the World</h1>
           {mealList}
         </Container>
       </div>
