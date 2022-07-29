@@ -18,7 +18,7 @@ function App() {
   } 
 
   const fetchMeals = () => {
-    fetch("https://www.themealdb.com/api/json/v2/9973533/randomselection.php")
+    fetch("https://www.themealdb.com/api/json/v2/9973533/latest.php")
       .then(res => res.json())
       .then(data => 
         setMeals(data.meals))
@@ -57,9 +57,11 @@ function App() {
     <>
       <div className='outer-container'>
         <BoxContainer 
+          setMeals={setMeals}
           meals={meals}
           buttonList={buttonList}
           filterMeals={filterMeals}
+          fetchMeals={fetchMeals}
         />
         <Container sx={{width: '75%'}}>
           {mealList}

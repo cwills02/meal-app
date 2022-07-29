@@ -3,6 +3,7 @@
   background-color: #abd7eb;
   font-family: 'Roboto';
   font-weight: '400';
+  height: 100vh;
 }
 
 .outer-container {
@@ -26,8 +27,8 @@
 .filterButton:hover {
   background-color: #abd7eb;
   color: salmon;
-  transition: background-color 1s ease-in-out;
-  transition: color 1s ease-in-out;
+  transition: background-color 0.6s ease-in-out;
+  transition: color 0.6s ease-in-out;
 }
 
 .thumbnail {
@@ -44,5 +45,12 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+.restore-button:hover {
+  background-color: white;
+  color:#abd7eb;
+  transition: background-color 0.6s ease-in-out;
+  transition: color 0.6s ease-in-out;
 }
 

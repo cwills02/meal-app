@@ -15,8 +15,9 @@ export default function BoxContainer(props) {
           }
           )}
       <button 
+        onClick={props.fetchMeals}
         className='restore-button'
-        >See List</button>
+        >See Full List</button>
     </Box>
   );
 }
