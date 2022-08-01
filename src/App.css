@@ -61,3 +61,17 @@
 .box-container-active {
   transform: scaleY(1);
 }
+
+.meal-detail-container {
+  background-color: #abd7eb;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ingredient-list {
+  display: inline-block;
+  list-style: none;
+  padding-left: 0;
+}

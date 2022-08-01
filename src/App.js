@@ -5,6 +5,7 @@ import Login from './Login';
 import AppBar from './AppBar'
 import './App.css';
 import Meals from './Meals';
+import MealDetail from './MealDetail'
 
 function App() {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
         <Route path="/meals" element={<Meals meals={meals} setMeals={setMeals} displaySideBar={displaySideBar} />} />
+        <Route path="/meal/:id" element={<MealDetail meals={meals} displaySideBar={displaySideBar} />} />
       </Routes>
     </div>
   );

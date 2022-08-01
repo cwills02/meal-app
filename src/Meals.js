@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import {Link} from 'react-router-dom'
 
 import Container from './Container'
 import MealCard from './MealCard'
@@ -33,12 +34,16 @@ function App({meals, setMeals, displaySideBar}) {
     console.log(meals)
     mealList = meals.map(meal => {
       return (
-        <MealCard key={meal.idMeal}>
-          <h3>{meal.strMeal}</h3>
-          <img className='thumbnail' src={`${meal.strMealThumb}/preview`} 
-          alt='meal' />
-          <h3>Location Origin: {meal.strArea}</h3>
-        </MealCard>
+        <Fragment key={meal.idMeal}>
+            <MealCard>
+              <Link style={{textDecoration: 'none', color: 'inherit'}} to={`/meal/${meal.idMeal}`}>
+                <h3>{meal.strMeal}</h3>
+                <img className='thumbnail' src={`${meal.strMealThumb}/preview`} 
+                alt='meal' />
+                <h3>Location Origin: {meal.strArea}</h3>
+                </Link>
+            </MealCard>
+        </Fragment>
       )
     })
   }
@@ -63,8 +68,8 @@ function App({meals, setMeals, displaySideBar}) {
           filterMeals={filterMeals}
           fetchMeals={fetchMeals}
         />
-        <Container sx={{width: '75%'}}>
-        <h1 style={{color: 'navy', backgroundColor: '#abd7eb', marginTop: '0'}}>Newest Meals from Around the World</h1>
+        <Container>
+        <h1 style={{color: 'navy', background: 'transparent', marginTop: '0'}}>Newest Meals from Around the World</h1>
           {mealList}
         </Container>
       </div>
