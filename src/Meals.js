@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import Container from './Container'
 import MealCard from './MealCard'
 import BoxContainer from './BoxContainer'
 
-function App() {
-  const [meals, setMeals] = useState([]);
-
+function App({meals, setMeals, displaySideBar}) {
   let buttonList = [];
   if(meals.length > 1) {
     let buttons = meals.map(meal => meal.strCategory);
@@ -39,7 +37,7 @@ function App() {
           <h3>{meal.strMeal}</h3>
           <img className='thumbnail' src={`${meal.strMealThumb}/preview`} 
           alt='meal' />
-          <h3>{meal.strArea}</h3>
+          <h3>Location Origin: {meal.strArea}</h3>
         </MealCard>
       )
     })
@@ -58,6 +56,7 @@ function App() {
     <>
       <div className='outer-container'>
         <BoxContainer 
+          displaySideBar={displaySideBar}
           setMeals={setMeals}
           meals={meals}
           buttonList={buttonList}

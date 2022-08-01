@@ -6,12 +6,14 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar({setDisplaySideBar, displaySideBar}) {
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor: 'salmon'}}>
         <Toolbar>
           <IconButton
+            onClick={() => setDisplaySideBar(!displaySideBar)}
             size="large"
             edge="start"
             color="inherit"

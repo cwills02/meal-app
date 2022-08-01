@@ -4,7 +4,10 @@ import Box from '@mui/material/Box';
 export default function BoxContainer(props) {
 
   return (
-    <Box style={{marginTop: '15px'}}>
+    <Box 
+    className={!props.displaySideBar ? 'box-container box-container-active' : 'box-container'}
+    sx={{marginTop: '15px'}}>
+      <h2 style={{color: '#000080'}}>Category Filter</h2>
       {props.children}
       {props.meals.length > 0 && props.buttonList.map(item => {
             return (
