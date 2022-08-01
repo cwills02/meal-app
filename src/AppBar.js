@@ -22,7 +22,7 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar}) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, transform: 'translateX(-4%)' }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
             Meal App
           </Typography>
         </Toolbar>
