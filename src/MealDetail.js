@@ -36,6 +36,7 @@ const MealDetail = (props) => {
     
     return(
         <Fragment>
+            <Link to='/meals'>Back Home</Link>
             <div className="meal-detail-container">
                 <h1>{selectedMeal.strMeal}</h1>
                 <img style={{width: '35vw'}} src={selectedMeal.strMealThumb} />
