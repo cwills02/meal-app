@@ -36,7 +36,11 @@ const MealDetail = (props) => {
     
     return(
         <Fragment>
-            <Link to='/meals'>Back Home</Link>
+            <Link to='/meals'>
+                <button style={{marginTop: '20px', background: 'salmon', color: '#000080', border: 'none', padding: '10px', borderRadius: '10px', cursor: 'pointer'}}>
+                    Back Home
+                </button>
+            </Link>
             <div className="meal-detail-container">
                 <h1>{selectedMeal.strMeal}</h1>
                 <img style={{width: '35vw'}} src={selectedMeal.strMealThumb} />
