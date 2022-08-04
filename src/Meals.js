@@ -31,7 +31,6 @@ function App({meals, setMeals, displaySideBar}) {
   if(meals === []) {
     mealList = <h1>No Meals Yet!</h1>
   } else if(meals) {
-    console.log(meals)
     mealList = meals.map(meal => {
       return (
         <Fragment key={meal.idMeal}>
