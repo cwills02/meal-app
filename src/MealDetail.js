@@ -1,6 +1,7 @@
 import { Fragment, useEffect } from "react"
 import {useParams, Link} from 'react-router-dom'
 import YouTube from 'react-youtube';
+import './App.css'
 
 const MealDetail = (props) => {
     useEffect(() => {
@@ -37,13 +38,13 @@ const MealDetail = (props) => {
     return(
         <Fragment>
             <Link to='/meals'>
-                <button style={{marginTop: '20px', background: 'salmon', color: '#000080', border: 'none', padding: '10px', borderRadius: '10px', cursor: 'pointer'}}>
+                <button className="meal-detail">
                     Back Home
                 </button>
             </Link>
             <div className="meal-detail-container">
                 <h1>{selectedMeal.strMeal}</h1>
-                <img style={{width: '35vw'}} src={selectedMeal.strMealThumb} />
+                <img style={{width: '35vw'}} src={selectedMeal.strMealThumb} alt="meal thumbnail" />
                 <h2>{selectedMeal.strCategory}</h2>
                 <ul className="ingredient-list">
                     <h3>Ingredients you will need:</h3>
