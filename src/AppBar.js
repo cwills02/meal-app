@@ -7,11 +7,15 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function ButtonAppBar({setDisplaySideBar, displaySideBar}) {
+  let currentURL = window.location.href;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor: 'salmon'}}>
         <Toolbar>
+          {
+          currentURL.includes('meals') 
+          &&
           <IconButton
             onClick={() => setDisplaySideBar(!displaySideBar)}
             size="large"
@@ -22,6 +26,7 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar}) {
           >
             <MenuIcon />
           </IconButton>
+          }
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
             Meal App
           </Typography>

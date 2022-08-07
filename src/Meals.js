@@ -5,7 +5,7 @@ import Container from './Container'
 import MealCard from './MealCard'
 import BoxContainer from './BoxContainer'
 
-function App({meals, setMeals, displaySideBar}) {
+function Meals({meals, setMeals, displaySideBar}) {
   let buttonList = [];
   if(meals.length > 1) {
     let buttons = meals.map(meal => meal.strCategory);
@@ -76,4 +76,4 @@ function App({meals, setMeals, displaySideBar}) {
   );
 }
 
-export default App;
+export default Meals;
