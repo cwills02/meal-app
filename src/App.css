@@ -92,3 +92,12 @@
   background-color: #000080;
   color: salmon;
 }
+
+.favorite-container {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.favorite-container ul {
+  list-style: none;
+}

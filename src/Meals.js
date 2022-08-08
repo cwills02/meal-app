@@ -4,8 +4,12 @@ import {Link} from 'react-router-dom'
 import Container from './Container'
 import MealCard from './MealCard'
 import BoxContainer from './BoxContainer'
+import FavoriteContainer from './FavoriteContainer';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-function Meals({meals, setMeals, displaySideBar}) {
+function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals}) {
+
   let buttonList = [];
   if(meals.length > 1) {
     let buttons = meals.map(meal => meal.strCategory);
@@ -41,10 +45,30 @@ function Meals({meals, setMeals, displaySideBar}) {
                 alt='meal' />
                 <h3>Location Origin: {meal.strArea}</h3>
                 </Link>
+                {!favoriteMeals.includes(meal.strMeal) ? (
+                <>
+                <FavoriteBorderIcon sx={{cursor: 'pointer'}} onClick={() => addToFavorites(meal.strMeal)} />
+                <span>Add to Favorites</span>
+                </>
+                )
+                : (
+                  <FavoriteIcon />
+                )
+              }
             </MealCard>
         </Fragment>
       )
     })
+  }
+
+  const addToFavorites = (meal) => {
+    setFavoriteMeals([...favoriteMeals, meal]);
+  }
+
+  const removeFromFavorites = (meal) => {
+    let favMeals = [...favoriteMeals];
+    let newFavoriteMeals = favMeals.filter(favorite => favorite !== meal);
+    setFavoriteMeals(newFavoriteMeals);
   }
 
   const filterMeals = (str) => {
@@ -71,6 +95,7 @@ function Meals({meals, setMeals, displaySideBar}) {
         <h1 style={{color: 'navy', background: 'transparent', marginTop: '0'}}>Newest Meals from Around the World</h1>
           {mealList}
         </Container>
+        <FavoriteContainer favoriteMeals={favoriteMeals} removeFromFavorites={removeFromFavorites} />
       </div>
     </>
   );

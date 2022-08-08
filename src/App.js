@@ -11,6 +11,7 @@ function App() {
   const navigate = useNavigate();
 
   const [meals, setMeals] = useState([]);
+  const [favoriteMeals, setFavoriteMeals] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [displaySideBar, setDisplaySideBar] = useState(true)
 
@@ -25,7 +26,7 @@ function App() {
       <AppBar displaySideBar={displaySideBar} setDisplaySideBar={setDisplaySideBar} />
       <Routes>
         <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
-        <Route path="/meals" element={<Meals meals={meals} setMeals={setMeals} displaySideBar={displaySideBar} />} />
+        <Route path="/meals" element={<Meals meals={meals} setMeals={setMeals} favoriteMeals={favoriteMeals} setFavoriteMeals={setFavoriteMeals} displaySideBar={displaySideBar} />} />
         <Route path="/meal/:id" element={<MealDetail meals={meals} displaySideBar={displaySideBar} />} />
       </Routes>
     </div>
