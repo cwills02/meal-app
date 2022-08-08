@@ -7,8 +7,8 @@ const FavoriteContainer = (props) => {
         ?
         favorites = props.favoriteMeals.map((meal, idx) => {
         return (
-            <li key={idx}>
-                <RemoveCircleOutlineIcon onClick={() => props.removeFromFavorites(meal)} />{meal}
+            <li key={idx} style={{display: 'flex'}}>
+                <RemoveCircleOutlineIcon sx={{width: '1em', height: 'auto', cursor: 'pointer'}} onClick={() => props.removeFromFavorites(meal)} />{meal}
             </li>
         )
     }) : favorites = <h3>No favorites yet</h3>

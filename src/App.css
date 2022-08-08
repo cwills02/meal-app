@@ -4,12 +4,14 @@
   font-family: 'Roboto';
   font-weight: '400';
   height: 100vh;
+  width: 100vw;
 }
 
 .outer-container {
   display: flex;
   background-color: #abd7eb;
   height: max-content;
+  width: 100vw;
 }
 
 .filterButton {
@@ -94,10 +96,11 @@
 }
 
 .favorite-container {
-  text-align: right;
+  text-align: center;
   padding-right: 20px;
 }
 
 .favorite-container ul {
   list-style: none;
+  padding-left: 0px;
 }

@@ -46,10 +46,10 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
                 <h3>Location Origin: {meal.strArea}</h3>
                 </Link>
                 {!favoriteMeals.includes(meal.strMeal) ? (
-                <>
-                <FavoriteBorderIcon sx={{cursor: 'pointer'}} onClick={() => addToFavorites(meal.strMeal)} />
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                <FavoriteBorderIcon sx={{cursor: 'pointer', marginBottom: '0px'}} onClick={() => addToFavorites(meal.strMeal)} />
                 <span>Add to Favorites</span>
-                </>
+                </div>
                 )
                 : (
                   <FavoriteIcon />
