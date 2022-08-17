@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from "react"
-import {useParams, Link} from 'react-router-dom'
+import {useParams, Link, Navigate} from 'react-router-dom'
 import YouTube from 'react-youtube';
 import './App.css'
 
@@ -35,28 +35,32 @@ const MealDetail = (props) => {
         })
     }
     
-    return(
-        <Fragment>
-            <Link to='/meals'>
-                <button className="meal-detail">
-                    Back Home
-                </button>
-            </Link>
-            <div className="meal-detail-container">
-                <h1>{selectedMeal.strMeal}</h1>
-                <img style={{width: '35vw'}} src={selectedMeal.strMealThumb} alt="meal thumbnail" />
-                <h2>{selectedMeal.strCategory}</h2>
-                <ul className="ingredient-list">
-                    <h3>Ingredients you will need:</h3>
-                    {ingredients}
-                </ul>
-                <h2>Directions on how to make</h2>
-                <p>{selectedMeal.strInstructions}</p>
-                <h2>Video Demonstration</h2>
-                <YouTube videoId={videoID} />
-            </div>
-        </Fragment>
-    )
+    if(!selectedMeal || props.meals === []) {
+        return <Navigate to="/meals" />
+    } else {
+        return(
+            <Fragment>
+                <Link to='/meals'>
+                    <button className="meal-detail">
+                        Back Home
+                    </button>
+                </Link>
+                <div className="meal-detail-container">
+                    <h1>{selectedMeal.strMeal}</h1>
+                    <img style={{width: '35vw'}} src={selectedMeal.strMealThumb} alt="meal thumbnail" />
+                    <h2>{selectedMeal.strCategory}</h2>
+                    <ul className="ingredient-list">
+                        <h3>Ingredients you will need:</h3>
+                        {ingredients}
+                    </ul>
+                    <h2>Directions on how to make</h2>
+                    <p>{selectedMeal.strInstructions}</p>
+                    <h2>Video Demonstration</h2>
+                    <YouTube videoId={videoID} />
+                </div>
+            </Fragment>
+        )
+    }
 }
 
 export default MealDetail
