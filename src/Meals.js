@@ -80,6 +80,14 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
     }
   }
 
+  const filterFavorites = () => {
+    let filteredFavs;
+    if(meals.length > 0) {
+      filteredFavs = meals.filter(meal => favoriteMeals.includes(meal.strMeal));
+      setMeals(filteredFavs);
+    }
+  }
+
   return (
     <>
       <div className='outer-container'>
@@ -90,6 +98,7 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
           buttonList={buttonList}
           filterMeals={filterMeals}
           fetchMeals={fetchMeals}
+          filterFavorites={filterFavorites}
         />
         <Container>
         <h1 style={{color: 'navy', background: 'transparent', marginTop: '0'}}>Newest Meals from Around the World</h1>

@@ -21,6 +21,7 @@ export default function BoxContainer(props) {
         onClick={props.fetchMeals}
         className='restore-button'
         >See Full List</button>
+      <button className='favorite-button' onClick={props.filterFavorites}>Show Favorites</button>
     </Box>
   );
 }
