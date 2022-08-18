@@ -1,3 +1,4 @@
+import './App.css'
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 const FavoriteContainer = (props) => {

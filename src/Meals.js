@@ -52,7 +52,7 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
                 </div>
                 )
                 : (
-                  <FavoriteIcon />
+                  <FavoriteIcon sx={{cursor: 'pointer'}} onClick={() => removeFromFavorites(meal.strMeal)} />
                 )
               }
             </MealCard>

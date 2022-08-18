@@ -98,9 +98,16 @@
 .favorite-container {
   text-align: center;
   padding-right: 20px;
+  background-color: #f0f0f0c6;
+  height: fit-content;
+  margin-top: 20px;
+  color: #000080;
+  padding-left: 20px;
+  border-radius: 20px;
 }
 
 .favorite-container ul {
   list-style: none;
   padding-left: 0px;
+
 }
