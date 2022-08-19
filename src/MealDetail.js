@@ -20,7 +20,7 @@ const MealDetail = (props) => {
         if(key.includes('strIngredient') && selectedMeal[key] !== "") {
             ingredientList.push(selectedMeal[key])
         }
-        videoID = selectedMeal.strYoutube.slice(32,43)
+        videoID = selectedMeal.strYoutube.slice(32,43);
     }
 
     let ingredients;

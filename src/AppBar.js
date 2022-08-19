@@ -9,6 +9,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 export default function ButtonAppBar({setDisplaySideBar, displaySideBar}) {
   let currentURL = window.location.href;
 
+  let titlePosition;
+  if(window.location.href.includes('meals')) {
+    titlePosition = 'translateX(-5%)';
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor: 'salmon'}}>
@@ -27,7 +32,7 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar}) {
             <MenuIcon />
           </IconButton>
           }
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1, textAlign: 'center', transform: titlePosition }}>
             Meal App
           </Typography>
         </Toolbar>
