@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import {auth} from './Firebase'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from './Firebase'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom'
 
 const SignUp = (props) => {
@@ -11,7 +11,7 @@ const SignUp = (props) => {
 
     const handleEmailChange = (e) => {
         e.preventDefault();
-        setEmail(e.target.value)
+        setEmail(e.target.value);
     }
 
     const handlePasswordChange = (e) => {
@@ -22,10 +22,11 @@ const SignUp = (props) => {
     const createAccount = (auth, email, password) => {
         createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
             const user = userCredential.user;
+            console.log(user);
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+            console.log(error.code);
+            console.log(error.message)
         })
     }
 
@@ -34,9 +35,9 @@ const SignUp = (props) => {
             <button onClick={() => navigate("/")}>Back to Login</button>
             <h1>Sign Up</h1>
             <div className="login-inputs">
-                <input placeholder="Sign Up With Email" onChange={(e) => handleEmailChange} />
+                <input placeholder="Sign Up With Email" onChange={(e) => handleEmailChange(e)} />
                 <input placeholder="Sign Up With Password" onChange={(e) => handlePasswordChange(e)} />
-                <button className="sign-in">Sign Up</button>
+                <button className="sign-in" onClick={() => createAccount(auth, email, password)}>Sign Up</button>
             </div>
         </div>
     )
