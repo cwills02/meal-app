@@ -1,5 +1,7 @@
 import { useState, Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { auth } from './Firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import './Login.css'
 
@@ -19,6 +21,24 @@ const Login = (props) => {
         setPassword(e.target.value);
     }
 
+    const signIn = (auth, email, password) => {
+      signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        const user = userCredential.user;
+        props.setUser(user);
+        console.log(props.user)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      })
+    }
+
+    if(props.user) {
+      props.setLoggedIn(true);
+      navigate('/meals');
+    }
+
     return(
         <Fragment>
           <h1 style={{color: '#000080'}}>Login</h1>
@@ -27,7 +47,7 @@ const Login = (props) => {
             <input placeholder='password' type='password' onChange={(e) => handlePasswordChange(e)} />
             <button 
             className='sign-in'
-            onClick={() => props.setLoggedIn(true)}>Sign In</button>
+            onClick={() => signIn(auth, email, password)}>Sign In</button>
             <span>Or</span>
             <button onClick={() => navigate('/signup')}>Sign Up</button>
           </div>

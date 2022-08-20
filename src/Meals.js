@@ -8,7 +8,9 @@ import FavoriteContainer from './FavoriteContainer';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals}) {
+function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals, user}) {
+
+  console.log(user)
 
   let buttonList = [];
   if(meals.length > 1) {
