@@ -2,6 +2,7 @@ import { Fragment, useEffect } from "react"
 import {useParams, Link, Navigate} from 'react-router-dom'
 import YouTube from 'react-youtube';
 import './App.css'
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const MealDetail = (props) => {
     useEffect(() => {
@@ -46,6 +47,11 @@ const MealDetail = (props) => {
                     </button>
                 </Link>
                 <div className="meal-detail-container">
+                    {
+                        props.favoriteMeals.includes(selectedMeal.strMeal)
+                        &&
+                        <FavoriteIcon sx={{color: 'salmon'}} />
+                    }
                     <h1>{selectedMeal.strMeal}</h1>
                     <img style={{width: '35vw'}} src={selectedMeal.strMealThumb} alt="meal thumbnail" />
                     <h2>{selectedMeal.strCategory}</h2>
