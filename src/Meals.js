@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 import Container from './Container'
 import MealCard from './MealCard'
@@ -7,10 +7,17 @@ import BoxContainer from './BoxContainer'
 import FavoriteContainer from './FavoriteContainer';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { PropaneSharp } from '@mui/icons-material';
 
 function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals, user}) {
 
-  console.log(user)
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if(!user) {
+      navigate('/');
+    }
+  }, [user])
 
   let buttonList = [];
   if(meals.length > 1) {
