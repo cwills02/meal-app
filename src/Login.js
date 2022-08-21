@@ -25,7 +25,8 @@ const Login = (props) => {
       signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         const user = userCredential.user;
         props.setUser(user);
-        console.log(props.user)
+        console.log(props.user);
+        navigate('/meals');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -33,10 +34,10 @@ const Login = (props) => {
       })
     }
 
-    if(props.user) {
-      props.setLoggedIn(true);
-      navigate('/meals');
-    }
+    // if(props.user) {
+    //   props.setLoggedIn(true);
+    //   navigate('/meals');
+    // }
 
     return(
         <Fragment>
@@ -48,7 +49,7 @@ const Login = (props) => {
             className='sign-in'
             onClick={() => signIn(auth, email, password)}>Sign In</button>
             <span>Or</span>
-            <button onClick={() => navigate('/signup')}>Sign Up</button>
+            <button onClick={() => navigate("/signup")}>Sign Up</button>
           </div>
         </Fragment>
     )

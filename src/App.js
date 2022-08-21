@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from './Login';
 import SignUp from './SignUp';
+import {auth} from './Firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 import AppBar from './AppBar'
 import './App.css';
@@ -16,6 +18,14 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [displaySideBar, setDisplaySideBar] = useState(true);
   const [user, setUser] = useState('');
+
+  onAuthStateChanged(auth, (user) => {
+    if(user) {
+      const uid = user.uid;
+    } else {
+      navigate("/");
+    }
+  })
 
   useEffect(() => {
     if (loggedIn) {

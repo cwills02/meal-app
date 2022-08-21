@@ -7,7 +7,6 @@ import BoxContainer from './BoxContainer'
 import FavoriteContainer from './FavoriteContainer';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { PropaneSharp } from '@mui/icons-material';
 
 function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals, user}) {
 
