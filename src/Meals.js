@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
+import { ref, set} from "firebase/database";
+import {database} from './Firebase';
 
 import Container from './Container'
 import MealCard from './MealCard'
@@ -69,14 +71,23 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
     })
   }
 
+  const writeUserFavorites = (favoriteMeals) => {
+    const db = database;
+    set(ref(db, "favorites/" + user.uid), {
+      favorites: favoriteMeals
+    })
+  }
+
   const addToFavorites = (meal) => {
     setFavoriteMeals([...favoriteMeals, meal]);
+    writeUserFavorites([...favoriteMeals, meal]);
   }
 
   const removeFromFavorites = (meal) => {
     let favMeals = [...favoriteMeals];
     let newFavoriteMeals = favMeals.filter(favorite => favorite !== meal);
     setFavoriteMeals(newFavoriteMeals);
+    writeUserFavorites(newFavoriteMeals);
   }
 
   const filterMeals = (str) => {
