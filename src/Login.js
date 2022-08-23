@@ -44,7 +44,7 @@ const Login = (props) => {
             className='sign-in'
             onClick={() => signIn(auth, email, password)}>Sign In</button>
             <span>Or</span>
-            <button onClick={() => navigate("/signup")}>Sign Up</button>
+            <button className='sign-up' onClick={() => navigate("/signup")}>Sign Up</button>
           </div>
         </Fragment>
     )

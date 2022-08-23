@@ -32,7 +32,7 @@ const SignUp = (props) => {
 
     return (
         <div>
-            <button onClick={() => navigate("/")}>Back to Login</button>
+            <button className='back-login' onClick={() => navigate("/")}>Back to Login</button>
             <h1>Sign Up</h1>
             <div className="login-inputs">
                 <input placeholder="Sign Up With Email" type="email" onChange={(e) => handleEmailChange(e)} />
