@@ -4,6 +4,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 import {auth} from './Firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 
 import AppBar from './AppBar'
 import './App.css';
@@ -20,11 +21,10 @@ function App() {
   const [user, setUser] = useState('');
 
   onAuthStateChanged(auth, (user) => {
-    if(user) {
-      const uid = user.uid;
-    } else {
+    if(user === '') {
+      setLoggedIn(false);
       navigate("/");
-    }
+    } 
   })
 
   useEffect(() => {
@@ -33,9 +33,18 @@ function App() {
     }
   }, [loggedIn]);
 
+  const signUserOut = (auth) => {
+    signOut(auth).then(() => {
+      setUser('');
+      setLoggedIn(false);
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+
   return (
     <div className="App">
-      <AppBar displaySideBar={displaySideBar} setDisplaySideBar={setDisplaySideBar} />
+      <AppBar displaySideBar={displaySideBar} setDisplaySideBar={setDisplaySideBar} signUserOut={signUserOut} />
       <Routes>
         <Route path="/" element={<Login setLoggedIn={setLoggedIn} user={user} setUser={setUser} />} />
         <Route path="/signup" element={<SignUp />} />

@@ -5,14 +5,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
+import { auth } from './Firebase';
 
-export default function ButtonAppBar({setDisplaySideBar, displaySideBar}) {
+export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUserOut}) {
   let currentURL = window.location.href;
 
   let titlePosition;
   if(window.location.href.includes('meals')) {
-    titlePosition = 'translateX(-5%)';
-  }
+    titlePosition = 'translateX(-2%)';
+  } 
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -35,6 +37,12 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar}) {
           <Typography variant="h5" component="div" sx={{ flexGrow: 1, textAlign: 'center', transform: titlePosition }}>
             Meal App
           </Typography>
+          {
+            currentURL.includes('meal')
+            &&
+            <Link style={{textDecoration: 'none'}} onClick={() => signUserOut(auth)} to='/'>Sign Out
+            </Link> 
+          }
         </Toolbar>
       </AppBar>
     </Box>
