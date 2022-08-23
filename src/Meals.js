@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
-import { ref, set} from "firebase/database";
+import { getDatabase, ref, set, child, get} from "firebase/database";
 import {database} from './Firebase';
 
 import Container from './Container'
@@ -40,6 +40,24 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
   useEffect(() => {
     fetchMeals();
   }, [])
+
+  useEffect(() => {
+    fetchFavorites();
+  }, []);
+
+  const dbRef = ref(getDatabase());
+  const fetchFavorites = () => {
+    get(child(dbRef, `favorites/${user.uid}`)).then((snapshot) => {
+      if(snapshot.exists()) {
+        setFavoriteMeals(snapshot.val().favorites);
+      } else {
+        console.log("No data available")
+        setFavoriteMeals([]);
+      }
+    }).catch((error) => {
+      console.log(error)
+    }) 
+  };
 
   let mealList; 
   if(meals === []) {

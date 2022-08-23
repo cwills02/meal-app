@@ -34,11 +34,6 @@ const Login = (props) => {
       })
     }
 
-    // if(props.user) {
-    //   props.setLoggedIn(true);
-    //   navigate('/meals');
-    // }
-
     return(
         <Fragment>
           <h1 style={{color: '#000080'}}>Login</h1>
