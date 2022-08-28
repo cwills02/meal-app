@@ -14,6 +14,8 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUse
   let titlePosition;
   if(currentURL.includes('meals')) {
     titlePosition = 'translateX(-2%)';
+  } else if(currentURL.includes('/')) {
+    titlePosition = 'translateX(0%)'
   } else {
     titlePosition = 'translateX(3%)'
   }
