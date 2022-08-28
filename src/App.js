@@ -17,7 +17,7 @@ function App() {
   const [meals, setMeals] = useState([]);
   const [favoriteMeals, setFavoriteMeals] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [displaySideBar, setDisplaySideBar] = useState(true);
+  const [displaySideBar, setDisplaySideBar] = useState(false);
   const [user, setUser] = useState('');
 
   onAuthStateChanged(auth, (user) => {

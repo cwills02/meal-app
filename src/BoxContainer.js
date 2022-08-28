@@ -11,17 +11,19 @@ export default function BoxContainer(props) {
       {props.children}
       {props.meals.length > 0 && props.buttonList.map(item => {
             return (
-              <div className='buttonList' key={item}>
+              <div key={item}>
                 <button id={item} className='filterButton' onClick={(e) => props.filterMeals(e.target.id)}>{item}</button> 
               </div>
             )
           }
           )}
-      <button 
-        onClick={props.fetchMeals}
-        className='restore-button'
-        >See Full List</button>
-      <button className='favorite-button' onClick={props.filterFavorites}>Show Favorites</button>
+      <div className='buttonList'>
+        <button 
+          onClick={props.fetchMeals}
+          className='restore-button'
+          >See Full List</button>
+        <button className='favorite-button' onClick={props.filterFavorites}>Show Favorites</button>
+      </div>
     </Box>
   );
 }

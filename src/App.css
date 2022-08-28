@@ -127,3 +127,8 @@
   color: rgb(27, 174, 27);;
   transition: all 0.4s ease-in-out;
 }
+
+.buttonList {
+  display: flex;
+  flex-direction: column;
+}

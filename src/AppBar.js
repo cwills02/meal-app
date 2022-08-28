@@ -12,9 +12,11 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUse
   let currentURL = window.location.href;
 
   let titlePosition;
-  if(window.location.href.includes('meals')) {
+  if(currentURL.includes('meals')) {
     titlePosition = 'translateX(-2%)';
-  } 
+  } else {
+    titlePosition = 'translateX(3%)'
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>

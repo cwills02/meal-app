@@ -119,10 +119,8 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
 
   const filterFavorites = () => {
     let filteredFavs;
-    if(meals.length > 0) {
-      filteredFavs = meals.filter(meal => favoriteMeals.includes(meal.strMeal));
-      setMeals(filteredFavs);
-    }
+    filteredFavs = meals.filter(meal => favoriteMeals.includes(meal.strMeal));
+    setMeals(filteredFavs);
   }
 
   return (

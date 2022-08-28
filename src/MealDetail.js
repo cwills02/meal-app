@@ -50,7 +50,7 @@ const MealDetail = (props) => {
                     {
                         props.favoriteMeals.includes(selectedMeal.strMeal)
                         &&
-                        <FavoriteIcon sx={{color: 'salmon'}} />
+                        <FavoriteIcon sx={{color: 'salmon', paddingTop: '20px'}} />
                     }
                     <h1>{selectedMeal.strMeal}</h1>
                     <img style={{width: '35vw'}} src={selectedMeal.strMealThumb} alt="meal thumbnail" />
@@ -60,7 +60,7 @@ const MealDetail = (props) => {
                         {ingredients}
                     </ul>
                     <h2>Directions on how to make</h2>
-                    <p>{selectedMeal.strInstructions}</p>
+                    <p style={{width: '80%'}}>{selectedMeal.strInstructions}</p>
                     <h2>Video Demonstration</h2>
                     <YouTube videoId={videoID} />
                 </div>
