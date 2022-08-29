@@ -6,7 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const MealDetail = (props) => {
     useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behabior: 'smooth'})
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
     }, [])
 
     let {id: idFromUrl} = useParams();
