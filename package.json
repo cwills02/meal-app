@@ -1,6 +1,5 @@
 {
   "name": "meal-app",
-  "homepage": "https://www.meal-db-portfolioapp.at/meal-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
