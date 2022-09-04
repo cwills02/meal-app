@@ -134,6 +134,7 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
           filterMeals={filterMeals}
           fetchMeals={fetchMeals}
           filterFavorites={filterFavorites}
+          fetchFavorites={fetchFavorites}
         />
         <Container>
         <h1 style={{color: 'navy', background: 'transparent', marginTop: '0'}}>Newest Meals from Around the World</h1>
