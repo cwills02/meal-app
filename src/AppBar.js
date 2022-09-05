@@ -11,7 +11,7 @@ import { auth } from './Firebase';
 export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUserOut}) {
   let currentURL = window.location.href;
   let titlePosition;
-  if(currentURL.includes('meal/')) {
+  if(currentURL.includes('meal-db-portfolio.web.app/meal/')) {
     titlePosition = '3.5vw';
   } 
 
