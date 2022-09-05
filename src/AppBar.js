@@ -37,7 +37,7 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUse
             Meal App
           </Typography>
           {
-            currentURL === 'https://meal-db-portfolio.web.app/'
+            currentURL !== 'https://meal-db-portfolio.web.app/'
             &&
             <Link style={{textDecoration: 'none'}} onClick={() => signUserOut(auth)} to='/'>Sign Out
             </Link> 
