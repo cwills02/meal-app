@@ -17,8 +17,6 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUse
     titlePosition = '3.5vw';
   } 
 
-  console.log(location);
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor: 'salmon'}}>
