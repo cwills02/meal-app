@@ -9,13 +9,13 @@ import { Link } from 'react-router-dom';
 import { auth } from './Firebase';
 
 export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUserOut}) {
-  // let location = useLocation();
-
   let currentURL = window.location.href;
   let titlePosition;
   if(currentURL === 'https://meal-db-portfolio.web.app/') {
     titlePosition = '3.5vw';
   } 
+
+  console.log(window.location.pathname);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -39,7 +39,7 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUse
             Meal App
           </Typography>
           {
-            currentURL.includes("meal-db-portfolio.web.app/meal")
+            window.location.pathname.includes("/meal")
             &&
             <Link style={{textDecoration: 'none', position: 'absolute', right: '10px'}} onClick={() => signUserOut(auth)} to='/'>Sign Out
             </Link> 
