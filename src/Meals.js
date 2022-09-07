@@ -12,6 +12,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals, user}) {
 
+  console.log(favoriteMeals);
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
 
   useEffect(() => {
     fetchMeals();
-  }, [])
+  }, [user])
 
   useEffect(() => {
     fetchFavorites();
@@ -73,14 +75,14 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
                 alt='meal' />
                 <h3>Location Origin: {meal.strArea}</h3>
                 </Link>
-                {!favoriteMeals.includes(meal.strMeal) ? (
+                {!favoriteMeals.includes(meal) ? (
                 <div style={{display: 'flex', justifyContent: 'center'}}>
-                <FavoriteBorderIcon sx={{cursor: 'pointer', marginBottom: '0px'}} onClick={() => addToFavorites(meal.strMeal)} />
+                <FavoriteBorderIcon sx={{cursor: 'pointer', marginBottom: '0px'}} onClick={() => addToFavorites(meal)} />
                 <span>Add to Favorites</span>
                 </div>
                 )
                 : (
-                  <FavoriteIcon sx={{cursor: 'pointer'}} onClick={() => removeFromFavorites(meal.strMeal)} />
+                  <FavoriteIcon sx={{cursor: 'pointer'}} onClick={() => removeFromFavorites(meal)} />
                 )
               }
             </MealCard>
@@ -97,7 +99,9 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
   }
 
   const addToFavorites = (meal) => {
-    setFavoriteMeals([...favoriteMeals, meal]);
+    if(!favoriteMeals.includes(meal)) {
+      setFavoriteMeals([...favoriteMeals, meal]);
+    }
     writeUserFavorites([...favoriteMeals, meal]);
   }
 

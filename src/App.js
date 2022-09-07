@@ -49,7 +49,9 @@ function App() {
         <Route path="/" element={<Login setLoggedIn={setLoggedIn} user={user} setUser={setUser} />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/meals" element={<Meals meals={meals} setMeals={setMeals} favoriteMeals={favoriteMeals} setFavoriteMeals={setFavoriteMeals} displaySideBar={displaySideBar} user={user} />} />
-        <Route path="/meal/:id" element={<MealDetail meals={meals} user={user} displaySideBar={displaySideBar} favoriteMeals={favoriteMeals} />} />
+        <Route path="/meal/:id" element={<MealDetail meals={meals} user={user} displaySideBar={displaySideBar} favoriteMeals={favoriteMeals} />}
+        loggedIn={loggedIn}
+        />
       </Routes>
     </div>
   );

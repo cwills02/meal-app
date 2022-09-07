@@ -5,6 +5,7 @@ import './App.css'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const MealDetail = (props) => {
+
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
     }, [])
@@ -48,7 +49,7 @@ const MealDetail = (props) => {
                 </Link>
                 <div className="meal-detail-container">
                     {
-                        props.favoriteMeals.includes(selectedMeal.strMeal)
+                        props.favoriteMeals.includes(selectedMeal)
                         &&
                         <FavoriteIcon sx={{color: 'salmon', paddingTop: '20px'}} />
                     }
