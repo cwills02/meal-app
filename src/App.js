@@ -24,7 +24,9 @@ function App() {
     if(user === '') {
       setLoggedIn(false);
       navigate("/");
-    } 
+    } else if(user !== '') {
+      setLoggedIn(true);
+    }
   })
 
   useEffect(() => {
