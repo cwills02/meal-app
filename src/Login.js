@@ -25,6 +25,7 @@ const Login = (props) => {
       signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         const user = userCredential.user;
         props.setUser(user);
+        props.setLoggedIn(true);
         console.log(props.user);
         navigate('/meals');
       })

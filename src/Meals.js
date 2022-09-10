@@ -12,8 +12,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals, user}) {
 
-  console.log(favoriteMeals);
-
   let navigate = useNavigate();
 
   useEffect(() => {

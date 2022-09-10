@@ -24,9 +24,7 @@ function App() {
     if(user === '') {
       setLoggedIn(false);
       navigate("/");
-    } else if(user !== '') {
-      setLoggedIn(true);
-    }
+    } 
   })
 
   useEffect(() => {
@@ -43,6 +41,8 @@ function App() {
       console.log(error)
     })
   }
+
+  console.log(loggedIn)
 
   return (
     <div className="App">
