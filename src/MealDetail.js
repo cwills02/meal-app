@@ -5,6 +5,7 @@ import './App.css'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const MealDetail = (props) => {
+    console.log(props.user)
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'})

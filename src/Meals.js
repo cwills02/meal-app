@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate, useLocation} from 'react-router-dom'
 import { getDatabase, ref, set, child, get} from "firebase/database";
 import {database} from './Firebase';
 
@@ -43,7 +43,7 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
 
   useEffect(() => {
     fetchFavorites();
-  }, []);
+  }, [user]);
 
   const dbRef = ref(getDatabase());
   const fetchFavorites = () => {
@@ -59,6 +59,11 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
     }) 
   };
 
+  let favMealIds;
+  if(favoriteMeals) {
+    favMealIds = favoriteMeals.map(meal => meal.idMeal)
+  }
+
   let mealList; 
   if(meals === []) {
     mealList = <h1>No Meals Yet!</h1>
@@ -73,7 +78,8 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
                 alt='meal' />
                 <h3>Location Origin: {meal.strArea}</h3>
                 </Link>
-                {!favoriteMeals.includes(meal) ? (
+                {!favMealIds.includes(meal.idMeal)
+                ? (
                 <div style={{display: 'flex', justifyContent: 'center'}}>
                 <FavoriteBorderIcon sx={{cursor: 'pointer', marginBottom: '0px'}} onClick={() => addToFavorites(meal)} />
                 <span>Add to Favorites</span>
@@ -97,10 +103,10 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
   }
 
   const addToFavorites = (meal) => {
-    if(!favoriteMeals.includes(meal)) {
+    if(!favoriteMeals.includes(meal.idMeal)) {
       setFavoriteMeals([...favoriteMeals, meal]);
+      writeUserFavorites([...favoriteMeals, meal]);
     }
-    writeUserFavorites([...favoriteMeals, meal]);
   }
 
   const removeFromFavorites = (meal) => {
@@ -121,7 +127,7 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
 
   const filterFavorites = () => {
     let filteredFavs;
-    filteredFavs = meals.filter(meal => favoriteMeals.includes(meal.strMeal));
+    filteredFavs = meals.filter(meal => favoriteMeals.includes(meal));
     setMeals(filteredFavs);
   }
 

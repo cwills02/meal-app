@@ -42,8 +42,6 @@ function App() {
     })
   }
 
-  console.log(loggedIn)
-
   return (
     <div className="App">
       <AppBar displaySideBar={displaySideBar} setDisplaySideBar={setDisplaySideBar} signUserOut={signUserOut} />
