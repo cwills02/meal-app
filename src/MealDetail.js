@@ -5,8 +5,6 @@ import './App.css'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const MealDetail = (props) => {
-    console.log(props.user)
-
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
     }, [])
@@ -37,6 +35,11 @@ const MealDetail = (props) => {
             )
         })
     }
+
+    let favMealIds;
+  if(props.favoriteMeals) {
+    favMealIds = props.favoriteMeals.map(meal => meal.idMeal)
+  }
     
     if(!selectedMeal || props.meals === []) {
         return <Navigate to="/meals" />
@@ -50,7 +53,7 @@ const MealDetail = (props) => {
                 </Link>
                 <div className="meal-detail-container">
                     {
-                        props.favoriteMeals.includes(selectedMeal)
+                        favMealIds.includes(selectedMeal.idMeal)
                         &&
                         <FavoriteIcon sx={{color: 'salmon', paddingTop: '20px'}} />
                     }
