@@ -127,7 +127,7 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
 
   const filterFavorites = () => {
     let filteredFavs;
-    filteredFavs = meals.filter(meal => favoriteMeals.includes(meal));
+    filteredFavs = meals.filter(meal => favMealIds.includes(meal.idMeal));
     setMeals(filteredFavs);
   }
 
