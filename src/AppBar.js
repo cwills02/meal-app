@@ -10,10 +10,6 @@ import { auth } from './Firebase';
 
 export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUserOut}) {
   let currentURL = window.location.href;
-  let titlePosition;
-  if(currentURL === 'https://meal-db-portfolio.web.app/') {
-    titlePosition = '3.5vw';
-  } 
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -33,7 +29,7 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUse
             <MenuIcon />
           </IconButton>
           }
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1, transform: `translateX(${titlePosition})`}}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1}}>
             Meal App
           </Typography>
           {
