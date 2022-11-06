@@ -29,8 +29,8 @@ export default function ButtonAppBar({setDisplaySideBar, displaySideBar, signUse
             <MenuIcon />
           </IconButton>
           }
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1}}>
-            Meal App
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            <div>Meal App</div>
           </Typography>
           {
             window.location.pathname.includes("/meal")
