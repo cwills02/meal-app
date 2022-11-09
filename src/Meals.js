@@ -10,7 +10,7 @@ import FavoriteContainer from './FavoriteContainer';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals, user}) {
+function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals, user, showingMeals}) {
 
   let navigate = useNavigate();
 
@@ -67,8 +67,8 @@ function Meals({meals, setMeals, displaySideBar, favoriteMeals, setFavoriteMeals
   let mealList; 
   if(meals === []) {
     mealList = <h1>No Meals Yet!</h1>
-  } else if(meals) {
-    mealList = meals.map(meal => {
+  } else if(showingMeals) {
+    mealList = showingMeals.map(meal => {
       return (
         <Fragment key={meal.idMeal}>
             <MealCard>
