@@ -52,9 +52,11 @@ function App() {
   return (
     <div className="App">
       <AppBar displaySideBar={displaySideBar} setDisplaySideBar={setDisplaySideBar} signUserOut={signUserOut} />
-      <div>
+      <div
+        style={{transform: 'translateX(-20px)'}}
+      >
         {
-        loggedIn &&
+        (loggedIn && window.location.pathname === '/meals') &&
         <input
           placeholder='Search Meals'
           value={query}
